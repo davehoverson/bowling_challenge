@@ -12,23 +12,24 @@
 	</head>
     <body ng-controller="MainController">
         <form novalidate class="simple-form">
-    Ball One: <input type="number" ng-model="a"/><br />
-    Ball Two: <input type="number" ng-model="b" /><br />
-    <input type="button" ng-click="newGame()" value="New Game" />
-    <input type="submit" ng-click="enterScore(a,b)" value="Enter Score" />
-  </form>
+            Ball One: <input type="number" ng-model="a"/><br />
+            Ball Two: <input type="number" ng-model="b" /><br />
+            Ball Three(10th Frame) <input type="number" ng-model="c" /><br />
+            <input type="button" ng-click="newGame()" value="New Game" />
+            <input type="submit" ng-click="enterScore(a,b,c)" ng-hide="myVar" value="Enter Score" />
+        </form>
        <h2>Frames</h2>
         <ul class="test">
             <li ng-repeat="score in scores track by $index">
                 <div class="rows">
                     <div class="scoreshere">
-                        <h4>{{score}}</h4>
+                       <h4>Frame{{($index+1)}}: {{score}}</h4>
                     </div>
                 </div>
             </li>
         </ul>
         <div>
-            <h4>TOTAL SCORE: {{ overallTotal() }} </h4>
+            <h4>TOTAL SCORE: {{total}} </h4>
         </div>    
     </body>
 </html>
